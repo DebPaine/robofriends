@@ -22,16 +22,12 @@ function App () {
 		return item.name.toLowerCase().includes(searchField.toLowerCase());
 	});
 
-	const onSearchChange = (e) => {
-		dispatch(setSearchField(e.target.value));
-	};
-
 	return !robots.length ? (
 		<h1>Loading</h1>
 	) : (
 		<div className='tc'>
 			<h1 className='f1'>RoboFriends</h1>
-			<SearchBox searchChange={onSearchChange} />
+			<SearchBox searchChange={(e) => dispatch(setSearchField(e.target.value))} />
 			<Scroll>
 				<ErrorBoundary>
 					<CardList robots={filteredRobots} />
