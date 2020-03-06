@@ -12,15 +12,14 @@ function App () {
 	const dispatch = useDispatch();
 
 	const [ robots, setRobots ] = useState([]);
+
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
 			.then((users) => setRobots(users));
 	});
 
-	const filteredRobots = robots.filter((item) => {
-		return item.name.toLowerCase().includes(searchField.toLowerCase());
-	});
+	const filteredRobots = robots.filter((item) => item.name.toLowerCase().includes(searchField.toLowerCase()));
 
 	return !robots.length ? (
 		<h1>Loading</h1>
