@@ -17,7 +17,7 @@ function App () {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
 			.then((users) => setRobots(users));
-	});
+	}, []);
 
 	const filteredRobots = robots.filter((item) => item.name.toLowerCase().includes(searchField.toLowerCase()));
 
